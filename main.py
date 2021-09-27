@@ -51,7 +51,6 @@ bouncetime=100)
     pwm = GPIO.PWM(white, f) 
     pwm.start (dc)
     
-    pwm.start(0) # initiate PWM at 0% duty cycle
     while 1:
       for dc in range(101): # loop duty cycle from 0 to 100
         pwm.ChangeDutyCycle(dc) # set duty cycle
