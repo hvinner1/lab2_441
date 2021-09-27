@@ -10,6 +10,8 @@ b2 =21
 f = 1 #hertz
 dc = 50
 Dict = {b1: green, b2: green}
+pred = GPIO.PWM(red, f)
+pgreen = GPIO.PWM(green, f)
 
 
 GPIO.setup(white, GPIO.OUT) # assign the pin as output
@@ -23,17 +25,17 @@ try:
   def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
     if GPIO.input(b1) == GPIO.HIGH:
-      pwm = GPIO.PWM(red, f)
+      pred.start (50)
       for dc in range(101):
-        pwm.ChangeDutyCycle(dc)
-      for dc in range(101, 0):
-        pwm.ChangeDutyCycle(dc)
+        pred.ChangeDutyCycle(dc)
+      for dc in range(101, 0, -1):
+        pred.ChangeDutyCycle(dc)
     if GPIO.input(b2) == GPIO.HIGH:
-      pwm = GPIO.PWM(green, f)
+      pgreen.start (50)
       for dc in range(101):
-        pwm.ChangeDutyCycle(dc)
-      for dc in range(101, 0):
-        pwm.ChangeDutyCycle(dc)
+        pgreen.ChangeDutyCycle(dc)
+      for dc in range(101, 0, -1):
+        pgreen.ChangeDutyCycle(dc)
 
 
 
