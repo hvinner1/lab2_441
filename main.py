@@ -23,12 +23,16 @@ try:
   def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
     if GPIO.input(b1) == GPIO.HIGH:
-      pwm = GPIO.PWM(red, 1)
+      pwm = GPIO.PWM(red, f)
       for dc in range(101):
         pwm.ChangeDutyCycle(dc)
+      for dc in range(101, 0):
+        pwm.ChangeDutyCycle(dc)
     if GPIO.input(b2) == GPIO.HIGH:
-      pwm = GPIO.PWM(green, 1)
+      pwm = GPIO.PWM(green, f)
       for dc in range(101):
+        pwm.ChangeDutyCycle(dc)
+      for dc in range(101, 0):
         pwm.ChangeDutyCycle(dc)
 
 
@@ -54,7 +58,7 @@ bouncetime=100)
 except KeyboardInterrupt: # stop gracefully on ctrl-C
   print("\nExiting")
 except Exception as e: # catch all other errors
-  print("\ne")
+  print('/n',e)
 pwm.stop()
 GPIO.cleanup()
 #switch 1 pressed
