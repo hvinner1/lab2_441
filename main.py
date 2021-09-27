@@ -10,8 +10,6 @@ b2 =21
 f = 1 #hertz
 dc = 50
 Dict = {b1: green, b2: green}
-pred = GPIO.PWM(red, f)
-pgreen = GPIO.PWM(green, f)
 
 
 GPIO.setup(white, GPIO.OUT) # assign the pin as output
@@ -19,6 +17,9 @@ GPIO.setup(red, GPIO.OUT) # assign the pin as output
 GPIO.setup(green, GPIO.OUT) # assign the pin as output
 GPIO.setup(b1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(b2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+pred = GPIO.PWM(red, f)
+pgreen = GPIO.PWM(green, f)
 
 
 try:
