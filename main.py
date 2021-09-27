@@ -8,7 +8,7 @@ green =12
 b1 =17
 b2 =21
 f = 1 #hertz
-dc = 50
+dc = 100
 Dict = {b1: green, b2: green}
 
 
