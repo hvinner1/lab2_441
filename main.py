@@ -28,14 +28,14 @@ try:
     if GPIO.input(b1) == GPIO.HIGH:
       pred = GPIO.PWM(red, f)
       pred.start(0)
-      for dc in range(101):
+      for dc in range(0,101, 1):
         pred.ChangeDutyCycle(dc)
       for dc in range(101, 0, -1):
         pred.ChangeDutyCycle(dc)
     if GPIO.input(b2) == GPIO.HIGH:
       pgreen = GPIO.PWM(green, f)
       pgreen.start(0)
-      for dc in range(101):
+      for dc in range(0, 101, 1):
         pgreen.ChangeDutyCycle(dc)
       for dc in range(101, 0, -1):
         pgreen.ChangeDutyCycle(dc)
