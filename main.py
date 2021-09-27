@@ -30,16 +30,20 @@ try:
       pred.start(0)
       for dc in range(0,101, 1):
         pred.ChangeDutyCycle(dc)
+        sleep(0.01)
         print(dc)
       for dc in range(100, 0, -1):
         pred.ChangeDutyCycle(dc)
+        sleep(0.01)
     if GPIO.input(b2) == GPIO.HIGH:
       pgreen = GPIO.PWM(green, f)
       pgreen.start(0)
       for dc in range(0, 101, 1):
         pgreen.ChangeDutyCycle(dc)
+        sleep(0.01)
       for dc in range(100, 0, -1):
         pgreen.ChangeDutyCycle(dc)
+        sleep(0.01)
     pred.stop()
     pgreen.stop()
 
