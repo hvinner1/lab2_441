@@ -30,23 +30,24 @@ try:
       pred.start(0)
       for dc in range(0,101, 1):
         pred.ChangeDutyCycle(dc)
-      for dc in range(101, 0, -1):
+        print(dc)
+      for dc in range(100, 0, -1):
         pred.ChangeDutyCycle(dc)
     if GPIO.input(b2) == GPIO.HIGH:
       pgreen = GPIO.PWM(green, f)
       pgreen.start(0)
       for dc in range(0, 101, 1):
         pgreen.ChangeDutyCycle(dc)
-      for dc in range(101, 0, -1):
+      for dc in range(100, 0, -1):
         pgreen.ChangeDutyCycle(dc)
     pred.stop()
     pgreen.stop()
 
 
   GPIO.add_event_detect(b1, GPIO.RISING, callback=myCallback,
-bouncetime=100)
+bouncetime=200)
   GPIO.add_event_detect(b2, GPIO.RISING, callback=myCallback,
-bouncetime=100)
+bouncetime=200)
   while True:
     pwm = GPIO.PWM(white, f) 
     pwm.start (dc)
